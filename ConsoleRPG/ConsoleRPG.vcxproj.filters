@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Scean">
+      <UniqueIdentifier>{c8ea2efd-882c-4c20-aa7f-e21e4d9c231b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Manager">
+      <UniqueIdentifier>{f913cc33-0d8f-448d-b7b1-72cdbfb0fac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Player">
+      <UniqueIdentifier>{c325ccca-8dc1-41df-a4e4-64c59a24dad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Weapon">
+      <UniqueIdentifier>{c11fc926-5f95-4cfb-9f25-717726fc06bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Armor">
+      <UniqueIdentifier>{e64746d7-5fa4-4560-9135-7bc4af3c3fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Monster">
+      <UniqueIdentifier>{1827848d-92e5-43d6-b0c2-1b3af08a1b9f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\Scean</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>소스 파일\Scean</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>소스 파일\Scean</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>소스 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Armor.h">
+      <Filter>소스 파일\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="Fist.h">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalArmor.h">
+      <Filter>소스 파일\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManger.h">
+      <Filter>소스 파일\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMonster.h">
+      <Filter>소스 파일\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="LArmor.h">
+      <Filter>소스 파일\Armor</Filter>
+    </ClInclude>
+    <ClInclude Include="NSword.h">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleRPG.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManger.cpp">
+      <Filter>소스 파일\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Scean</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일\Scean</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>소스 파일\Scean</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Fist.cpp">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalArmor.cpp">
+      <Filter>소스 파일\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniMonster.cpp">
+      <Filter>소스 파일\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="LArmor.cpp">
+      <Filter>소스 파일\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="Armor.cpp">
+      <Filter>소스 파일\Armor</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="NSword.cpp">
+      <Filter>소스 파일\Weapon</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
