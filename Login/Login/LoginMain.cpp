@@ -10,6 +10,40 @@ using namespace std;
 
 int main()
 {
+	LOGIN_INTI();
+	
+	LoginMng()->UserLogin();
+
+	cout << LoginMng()->GetUser()->GetData().m_strPW << endl;
+	cout << LoginMng()->GetUser()->GetData().m_nAge << endl;
+	cout << LoginMng()->GetUser()->GetData().m_strName << endl;
+	
+	LoginMng()->UserLogout();
+
+	LoginMng()->UserLogin();
+
+	cout << LoginMng()->GetUser()->GetData().m_strPW << endl;
+	cout << LoginMng()->GetUser()->GetData().m_nAge << endl;
+	cout << LoginMng()->GetUser()->GetData().m_strName << endl;
+
+	LoginMng()->GetUser()->ChangeInfo();
+
+	cout << LoginMng()->GetUser()->GetData().m_strPW << endl;
+	cout << LoginMng()->GetUser()->GetData().m_nAge << endl;
+	cout << LoginMng()->GetUser()->GetData().m_strName << endl;
+
+	LoginMng()->UserLogout();
+
+	LoginMng()->SignID();
+	LoginMng()->UserLogin();
+
+
+	cout << LoginMng()->GetUser()->GetData().m_strPW << endl;
+	cout << LoginMng()->GetUser()->GetData().m_nAge << endl;
+	cout << LoginMng()->GetUser()->GetData().m_strName << endl;
+	LoginMng()->UserLogout();
+
+	ReleaseLoginMng();
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴

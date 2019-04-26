@@ -12,9 +12,10 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <cassert>
 // TODO: 여기에 미리 컴파일하려는 헤더 추가
 
-#include "Data.h";
+#include "Data.h"
 #include "Login.h"
-
+#include "User.h"
 #endif //PCH_H
