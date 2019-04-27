@@ -21,5 +21,6 @@ struct LoginData
 
 	std::string	m_strPW = "";
 	std::string	m_strName = "";
+	std::string m_PWHint = "";
 
 };

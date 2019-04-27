@@ -18,9 +18,9 @@ Login::~Login()
 void Login::Init()
 {
 	m_LoginData.insert(Insert("test1", new User()));
-	m_LoginData["test1"]->SetData("1q2w3e4r", "이몽룡", 20, LoginData::Gender::Male);
+	m_LoginData["test1"]->SetData("1q2w3e4r", "이몽룡", 20, LoginData::Gender::Male,"남원초");
 	m_LoginData.insert(Insert("test2", new User()));
-	m_LoginData["test2"]->SetData("q1w2e3r4", "성춘향", 20, LoginData::Gender::Female);
+	m_LoginData["test2"]->SetData("q1w2e3r4", "성춘향", 20, LoginData::Gender::Female,"남원초");
 }
 
 bool Login::SignID()
@@ -42,6 +42,7 @@ bool Login::SignID()
 	pTmp->SetName();
 	pTmp->SetAge();
 	pTmp->SetGender();
+	pTmp->SetHint();
 	
 	
 	while (true)
@@ -93,7 +94,7 @@ bool Login::UserLogin()
 		if (FindID(tmp))
 		{
 			m_LoginUser = m_LoginData[tmp];
-	
+
 
 			std::cout << "패스워드를 입력해주세요 : ";
 			std::cin >> tmp;
@@ -103,8 +104,19 @@ bool Login::UserLogin()
 				std::cout << "로그인 성공" << std::endl;
 				return true;
 			}
-			m_LoginUser = nullptr;
 			std::cout << "비밀번호가 다릅니다." << std::endl;
+			std::cout << "비밀번호 찾기로 이동합니다." << std::endl;
+			if (LoginMng()->GetUser()->Find_PW())
+			{
+				std::cout << "로그인 성공" << std::endl;
+				return true;
+			}
+			else
+			{
+				std::cout << "로그인 실패" << std::endl;
+				m_LoginUser = nullptr;
+				return false;
+			}
 		}
 		std::cout << "아이디가 존재하지 않습니다." << std::endl;
 
