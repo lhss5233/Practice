@@ -2,7 +2,10 @@
 #include "BulletPool.h"
 
 
-BulletPool::BulletPool(const int& a_V) : m_nMax{ a_V } {};
+BulletPool::BulletPool(const int& a_V) : m_nMax{ a_V } 
+{
+	Init();
+};
 
 void BulletPool::Init()
 {
@@ -28,16 +31,18 @@ int BulletPool::GetBulletMax() const
 
 Bullet* BulletPool::GetBullet()
 {
+	
+	++m_nIndex;
 	Bullet * tmp = m_vBulletPool[m_nIndex];
-	m_vBulletPool[m_nIndex++] = nullptr;
+	m_vBulletPool[m_nIndex] = nullptr;
 	return tmp;
 }
 
 void BulletPool::returnBullet(Bullet * a_V)
 {
-	if (m_nIndex / m_nMax)
-		m_nIndex = 0;
+	if (m_nIndex == m_nMax)
+		--m_nIndex;
 
 	m_vBulletPool[m_nIndex] = a_V;
-	m_nIndex++;
+	--m_nIndex;
 }
