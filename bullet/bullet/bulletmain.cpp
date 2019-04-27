@@ -3,9 +3,45 @@
 
 #include "pch.h"
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	Player _player;
+
+	for (int i = 0; i < 10; i++)
+	{
+		_player.Bang();
+	}
+	_player.Bang();
+
+	_player.Reload();
+/*
+	for (int i = 0; i < 3; i++)
+	{
+		_player.Bang();
+	}
+	cout << endl;
+
+	_player.Reload();
+	*/
+	for (int i = 0; i < 10; i++)
+	{
+		_player.Bang();
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		_player.Bang();
+	}
+
+	_player.Bang();
+
+	_player.Reload();
+	for (int i = 0; i < 10; i++)
+	{
+		_player.Bang();
+	}
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
