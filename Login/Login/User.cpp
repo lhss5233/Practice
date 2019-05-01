@@ -16,12 +16,13 @@ LoginData User::GetData() const
 	return m_nLoginData;
 }
 
-void User::SetData(std::string a_PW, std::string a_Name, int a_Age, LoginData::Gender a_Gender)
+void User::SetData(std::string a_PW, std::string a_Name, int a_Age, LoginData::Gender a_Gender,std::string a_Hint)
 {
 	m_nLoginData.m_strPW = a_PW;
 	m_nLoginData.m_strName = a_Name;
 	m_nLoginData.m_nAge = a_Age;
 	m_nLoginData.m_eGender = a_Gender;
+	m_nLoginData.m_PWHint = a_Hint;
 }
 
 void User::SetName()
@@ -83,7 +84,7 @@ void User::SetPW()
 	std::string Tmp;
 	while (true)
 	{
-		std::cout << "비밀번호 : "; std::cin >> m_nLoginData.m_strPW;
+	std::cout << "비밀번호 : "; std::cin >> m_nLoginData.m_strPW;
 		std::cout << "비밀번호 재확인 : "; std::cin >> Tmp;
 		if (m_nLoginData.m_strPW == Tmp)
 		{
@@ -108,4 +109,43 @@ void User::ChangeInfo()
 	SetGender();
 	SetAge();
 	SetName();
+}
+void User::SetHint()
+{
+	std::string tmp;
+	std::cout << "비밀번호의 힌트...." << std::endl;
+	std::cout << "당신이 졸업한 초등학교는? : ";
+	std::cin >> tmp;
+	m_nLoginData.m_PWHint = tmp;
+
+}
+bool User::Find_PW()
+{
+	std::string tmp;
+	std::cout << "비밀번호의 힌트를 입력하세요.." << std::endl;
+	std::cout << "당신이 졸업한 초등학교는? : ";
+	for (int i = 3; i >= 0; i--)
+	{
+		std::cin >> tmp;
+
+		if (tmp == m_nLoginData.m_PWHint)
+		{
+			std::cout << "정답입니다. 당신의 비밀번호는 :";
+			std::cout << LoginMng()->GetUser()->GetData().m_strPW << std::endl;
+			std::cout << "입니다." << std::endl;
+			return true;
+		}
+		else if (i == 0)
+		{
+			std::cout << "횟수 초과" << std::endl;
+			return false;
+		}
+		else
+		{
+			std::cout << "틀렸습니다. 다시해보세요 남은 횟수 :" <<i<<std::endl;
+		}
+	}
+	
+
+
 }

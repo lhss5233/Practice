@@ -7,7 +7,7 @@ class Player
 
 	enum eBullet
 	{
-		MAX = 10,
+		MAX = 20,
 	};
 
 	std::vector<Bullet*> m_Clip;
@@ -16,6 +16,10 @@ class Player
 	int m_nHeat = 0;
 	int m_nMaxHeat = 100;
 	bool m_bHeatFlag = false;
+
+	bool iscooler = false;
+	bool reinforce = false;
+	bool extended_magazine = false;
 public:
 	Player();
 	~Player();
@@ -23,5 +27,16 @@ public:
 	void Reload();
 	void Bang();
 	bool IsOverHeat();
+
+	void incooler();
+	void uncooler();
+
+	void inreinforce();
+	void unreinforce();
+
+	void inExtended_magazine();
+	void unExtended_magazine();
+
+
 };
 
