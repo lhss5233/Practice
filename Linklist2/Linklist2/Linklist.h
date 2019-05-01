@@ -1,16 +1,18 @@
 #pragma once
 
+
+
 template <typename T>
-class MyLinkList
+class TMyLinkList
 {
 public:
 
-	struct Node
+	struct FNode
 	{
-		Node(T a_val) : Val{ a_val } {};
+		FNode(T a_val) : Val{ a_val } {};
 
-		Node * pPrev =nullptr;
-		Node * pNext = nullptr;
+		FNode * pPrev =nullptr;
+		FNode * pNext = nullptr;
 
 		T Val;
 	};
@@ -18,63 +20,63 @@ public:
 
 
 public:
-	MyLinkList() =default;
-	~MyLinkList()
+	TMyLinkList() =default;
+	~TMyLinkList()
 	{
 		Clear();
 	}
 
 	void Add(const T& val)
 	{
-		Node * pTemp = new Node(val);
-		if (m_pTail == nullptr)
+		FNode * pTemp = new FNode(val);
+		if (PTail == nullptr)
 		{
-			m_pHead = pTemp;
-			m_pTail = pTemp;
+			PHead = pTemp;
+			PTail = pTemp;
 		}
 		else
 		{
-			pTemp->pPrev = m_pTail;
-			m_pTail->pNext = pTemp;
-			m_pTail = pTemp;
+			pTemp->pPrev = PTail;
+			PTail->pNext = pTemp;
+			PTail = pTemp;
 		}
-		++m_nSize;
+		++ListSize;
 	}
 
 	void AddFront(const T& val)
 	{
-		Node * pTemp = new Node(val);
-		if (m_pHead == nullptr)
+		FNode * pTemp = new FNode(val);
+		if (PHead == nullptr)
 		{
-			m_pHead = pTemp;
-			m_pTail = pTemp;
+			PHead = pTemp;
+			PTail = pTemp;
 		}
 		else
 		{
-			pTemp->pNext = m_pHead;
-			m_pHead->pPrev = pTemp;
-			m_pHead = pTemp;
+			pTemp->pNext = PHead;
+			PHead->pPrev = pTemp;
+			PHead = pTemp;
 		}
-		++m_nSize;
+		++ListSize;
 	}
 
 
 
-	bool Remove(const T& val)
+	bool bRemove(const T& val)
 	{
-		Node* p = m_pHead;
-		Node* prev = nullptr;
+		FNode* p = PHead;
+		FNode* prev = nullptr;
 
 		while (p != nullptr)
 		{
 			if (p->Val == val)
 			{
 				if (prev != nullptr) { prev->pNext = p->pNext; p->pNext->pPrev = prev; }
-				if (m_pHead == p) { m_pHead = p->pNext; }
-				if (m_pTail == p) { m_pTail = prev; }
+				if (PHead == p) { PHead = p->pNext; }
+				if (PTail == p) { PTail = prev; }
 
 				delete p;
-				--m_nSize;
+				--ListSize;
 				return true;
 			}
 
@@ -84,32 +86,33 @@ public:
 
 		return false;
 	}
-	bool RemoveLast()
+	bool bRemoveLast()
 	{
-		if (m_pHead == nullptr)
+		if (PHead == nullptr)
 		{
 			return false;
 		}
-		if (m_pHead == m_pTail)
+		if (PHead == PTail)
 		{
-			delete m_pHead;
-			m_pHead = nullptr;
-			m_pTail = nullptr;
+			delete PHead;
+			PHead = nullptr;
+			PTail = nullptr;
 		}
 		else 
 		{
-			Node * prev = m_pTail->pPrev;
+			FNode * prev = PTail->pPrev;
 			prev->pNext = nullptr;
-			delete  m_pTail;
-			m_pTail = prev;
+			delete  PTail;
+			PTail = prev;
 			
 		}
-		--m_nSize;
+		--ListSize;
+
 		return true;
 	}
-	bool RemoveAll()
+	bool bRemoveAll()
 	{
-		if (m_pHead == nullptr)
+		if (PHead == nullptr)
 			return false;
 		Clear();
 
@@ -117,9 +120,9 @@ public:
 	}
 
 
-	bool Find(const T& val)
+	bool bFind(const T& val)
 	{
-		Node* p = m_pHead;
+		FNode* p = PHead;
 		while (p != nullptr)
 		{
 			if (p->Val = val)
@@ -131,38 +134,38 @@ public:
 		return false;
 	}
 
-	bool Empty()
+	bool bEmpty()
 	{
-		return m_pHead == nullptr;
+		return PHead == nullptr;
 	}
 
 	void Clear()
 	{
-		Node* p = m_pHead;
+		FNode* p = PHead;
 		while (p != nullptr)
 		{
-			Node* tmp = p;
+			FNode* tmp = p;
 			p = p->pNext;
 			delete tmp;
 		}
-		m_pHead = nullptr;
-		m_pTail = nullptr;
+		PHead = nullptr;
+		PTail = nullptr;
 	}
 
-	int GetSize()
+	int32 GetSize() const
 	{
-		return m_nSize;
+		return ListSize;
 	}
 
-	void Info()
+	void Info() const
 	{
-		if (m_pHead == nullptr)
+		if (PHead == nullptr)
 		{
 			std::cout << "인덱스가 존재하지 않음" << std::endl;
 		}
 		else
 		{
-			Node* p = m_pHead;
+			FNode* p = PHead;
 
 			while (p != nullptr)
 			{
@@ -173,12 +176,30 @@ public:
 		}
 	}
 
-private:
-	Node * m_pHead = nullptr;
-	Node * m_pTail = nullptr;
+	T GetHeadVal ()
+	{
+		if (PHead != nullptr)
+		{
+			return PHead->Val;
+		}
+	}
+	
+	T GetTailVal()
+	{
+		if (PTail != nullptr)
+		{
+			return PTail->Val;
+		}
+	}
 
-	int m_nIndex = 0;
-	int m_nSize = 0;
+
+protected:
+
+	FNode * PHead = nullptr;
+	FNode * PTail = nullptr;
+
+	int32 ListIndex = 0;
+	int32 ListSize = 0;
 };
 
 

@@ -151,8 +151,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Define.h" />
     <ClInclude Include="Linklist.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Linklist2.cpp" />

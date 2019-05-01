@@ -7,17 +7,17 @@
 using namespace std;
 int main()
 {
-	MyLinkList<int> L;
+	TMyLinkList<int> L;
 	for (int i = 0; i < 10; i++)
 	{
 		L.Add(i);
 	}
 	L.Info();
 	cout << endl;
-	L.Remove(11);
+	L.bRemove(11);
 	L.Info();
 	cout << endl;
-	L.Remove(8);
+	L.bRemove(8);
 	L.Info();
 	cout << endl;
 	L.AddFront(40);
@@ -26,12 +26,27 @@ int main()
 	L.AddFront(20);
 	L.Info();
 	cout << endl;
-	L.RemoveLast();
+	L.bRemoveLast();
 	L.Info();
 	cout << endl;
-	L.RemoveAll();
+	L.bRemoveAll();
 	L.Info();
 
+
+	TStack<int> S;
+
+	S.Push(10);
+	cout << S.Top() << endl;
+	S.Push(20);
+	cout << S.Top() << endl;
+	S.Push(30);
+	cout << S.Top() << endl;
+	S.Pop();
+	cout << S.Top() << endl;
+	S.Pop();
+	cout << S.Top() << endl;
+	S.Pop();
+	cout << S.bEmpty() << endl;
 }
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
