@@ -118,7 +118,28 @@ public:
 
 		return true;
 	}
+	bool bRemoveFront()
+	{
+		if (PHead == nullptr)
+		{
+			return false;
+		}
+		if (PHead == PTail)
+		{
+			delete PHead;
+			PHead = nullptr;
+			PTail = nullptr;
+		}
+		else
+		{
+			FNode * Tmp = PHead;
+			PHead = Tmp->pNext;
+			PHead->pPrev = nullptr;
+			delete Tmp;
+		}
 
+		return true;
+	}
 
 	bool bFind(const T& val)
 	{
